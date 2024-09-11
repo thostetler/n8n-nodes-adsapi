@@ -1,29 +1,29 @@
 import { INodeType, INodeTypeDescription } from 'n8n-workflow';
-import { httpVerbFields, httpVerbOperations } from './HttpVerbDescription';
+import { actions } from './actions';
 
-export class HttpBin implements INodeType {
+export class AdsApi implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'HttpBin',
-		name: 'httpBin',
-		icon: 'file:httpbin.svg',
+		displayName: 'AdsApi',
+		name: 'adsApi',
+		icon: 'file:adsapi.svg',
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Interact with HttpBin API',
+		description: 'Interact with ADS API',
 		defaults: {
-			name: 'HttpBin',
+			name: 'AdsApi',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
 		credentials: [
 			{
-				name: 'httpbinApi',
+				name: 'adsApi',
 				required: false,
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://httpbin.org',
-			url: '',
+			baseURL: 'https://api.adsabs.harvard.edu/v1',
+			url: '/search/query',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
@@ -48,15 +48,13 @@ export class HttpBin implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'HTTP Verb',
-						value: 'httpVerb',
+						name: 'Search',
+						value: 'search',
 					},
 				],
-				default: 'httpVerb',
+				default: 'search',
 			},
-
-			...httpVerbOperations,
-			...httpVerbFields,
+			...actions
 		],
 	};
 }

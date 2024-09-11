@@ -5,10 +5,10 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = '<your-docs-url>';
+export class AdsCredentialsApi implements ICredentialType {
+	name = 'adsApi';
+	displayName = 'ADS API';
+	documentationUrl = 'https://github.com/thostetler/n8n-nodes-adsapi#readme';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'Token',
@@ -17,13 +17,13 @@ export class HttpBinApi implements ICredentialType {
 			default: '',
 			typeOptions: {
 				password: true,
-			}
+			},
 		},
 		{
 			displayName: 'Domain',
 			name: 'domain',
 			type: 'string',
-			default: 'https://httpbin.org',
+			default: 'https://api.adsabs.harvard.edu/v1',
 		},
 	];
 
