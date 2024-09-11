@@ -5,7 +5,7 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class AdsCredentialsApi implements ICredentialType {
+export class AdsApiCredentialsApi implements ICredentialType {
 	name = 'adsApi';
 	displayName = 'ADS API';
 	documentationUrl = 'https://github.com/thostetler/n8n-nodes-adsapi#readme';
