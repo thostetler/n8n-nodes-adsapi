@@ -1,6 +1,6 @@
 {
 	"name": "@thostetler/n8n-nodes-adsapi",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "n8n node for performing actions on ADS API",
 	"keywords": [
 		"n8n-community-node-package"
